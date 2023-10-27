@@ -1,0 +1,139 @@
+/*! BeeUI Library v0.0.1 */@font-face {
+  font-family: "Craftwork Grotesk Regular";
+  font-style: normal;
+  font-weight: normal;
+  src: local("Craftwork Grotesk Regular"), url("/src/assets/fonts/CraftworkGrotesk-Regular.woff") format("woff");
+}
+@font-face {
+  font-family: "Beeline Sans";
+  src: local("Beeline Sans Regular"), local("BeelineSans-Regular"), url("/src/assets/fonts/BeelineSans-Regular.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+.bee-button {
+  position: relative;
+  padding: 5px 4px 5px 19px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 275px;
+  color: #ffffff;
+  border: 2px solid #FFC800;
+  background: #000000;
+  border-radius: 50px;
+  font-size: 20px;
+  font-family: Beeline Sans;
+  cursor: pointer;
+  transition: 0.3s;
+  overflow: hidden;
+}
+.bee-button--secondary {
+  background: #ffffff;
+  color: #000000;
+}
+.bee-button--small {
+  font-size: 14px;
+}
+.bee-button--big {
+  font-size: 26px;
+}
+.bee-button:hover {
+  color: #000000;
+}
+.bee-button:hover ellipse {
+  fill: #000000;
+}
+.bee-button:hover path {
+  stroke: #ffffff;
+}
+.bee-button:hover span {
+  z-index: 9;
+}
+.bee-button:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  height: 100%;
+  width: 0;
+  background: #FFC800;
+  transition: 0.3s;
+}
+.bee-button:hover:before {
+  width: 100%;
+}
+.bee-button svg {
+  width: 2.5em;
+  height: 2.5em;
+}
+.bee-button.disabled {
+  background: inherit;
+  color: #898E96;
+  border: 1px solid #898E96;
+  pointer-events: none;
+}
+.bee-button.disabled ellipse {
+  fill: #898E96;
+}
+.bee-button.disabled path {
+  stroke: #000000;
+}
+
+ellipse {
+  transition: 0.3s;
+}
+
+@media screen and (max-width: 1279px) {
+  button {
+    width: 235px;
+  }
+  button svg {
+    width: 42px;
+    height: 42px;
+  }
+}
+@media screen and (max-width: 1023px) {
+  button {
+    width: 190px;
+  }
+  button svg {
+    width: 34px;
+    height: 34px;
+  }
+}
+@media screen and (max-width: 959px) {
+  button {
+    width: 178px;
+  }
+  button svg {
+    width: 30px;
+    height: 30px;
+  }
+}
+@media screen and (max-width: 767px) {
+  button {
+    width: 142px;
+  }
+  button svg {
+    width: 24px;
+    height: 24px;
+  }
+}
+.bee-textbox {
+  width: 100%;
+  margin: 10px;
+  padding: 5px 0;
+  border: none;
+  border-bottom: 1px solid #898E96;
+  background: inherit;
+  color: #ffffff;
+  outline: none;
+  font-family: Beeline Sans;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 120%;
+}
+.bee-textbox--error {
+  color: #e36c6c;
+  border-bottom: 1px solid #e36c6c;
+}

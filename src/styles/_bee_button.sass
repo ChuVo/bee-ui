@@ -1,0 +1,114 @@
+@import "variables"
+
+$small-font-size: 14px
+$normal-font-size: 20px
+$big-font-size: 26px
+
+$small: 1.75em
+$normal: 3.25em
+$large: 2.5em
+
+.bee-button
+  position: relative
+  padding: 5px 4px 5px 19px
+  display: flex
+  align-items: center
+  justify-content: space-between
+  width: 275px
+  color: $primary-color
+  border: $primary-border
+  background: $primary-bg
+  border-radius: 50px
+  font-size: $normal-font-size
+  font-family: Beeline Sans
+  cursor: pointer
+  transition: .3s
+  overflow: hidden
+
+  &--secondary
+    background: $secondary-bg
+    color: $secondary-color
+
+  &--small
+    font-size: $small-font-size
+  &--big
+    font-size: $big-font-size
+
+  &:hover
+    color: $secondary-color
+
+  &:hover ellipse
+    fill: $primary-bg
+
+  &:hover path
+    stroke: $secondary-bg
+
+  &:hover span
+    z-index: 9
+
+  &:before
+    content: ''
+    position: absolute
+    left: 0
+    height: 100%
+    width: 0
+    background: $third
+    transition: .3s
+
+  &:hover:before
+    width: 100%
+
+  & svg
+    width: 2.5em
+    height: 2.5em
+
+  &.disabled
+    background: inherit
+    color: $four
+    border: 1px solid $four
+    pointer-events: none
+
+    & ellipse
+      fill: $four
+
+    & path
+      stroke: $secondary
+
+ellipse
+  transition: .3s
+
+@media screen and (max-width: 1365px)
+
+@media screen and (max-width: 1279px)
+  button
+    width: 235px
+
+    & svg
+      width: 42px
+      height: 42px
+
+@media screen and (max-width: 1023px)
+  button
+    width: 190px
+
+    & svg
+      width: 34px
+      height: 34px
+
+@media screen and (max-width: 959px)
+  button
+    width: 178px
+
+    & svg
+      width: 30px
+      height: 30px
+
+@media screen and (max-width: 767px)
+  button
+    width: 142px
+
+    & svg
+      width: 24px
+      height: 24px
+
+@media screen and (max-width: 480px)
