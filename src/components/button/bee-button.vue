@@ -5,7 +5,7 @@
     :disabled="computedDisabled"
   >
     <span v-text="label" />
-    <svg
+    <svg v-if="icon"
       width="24"
       height="24"
       viewBox="0 0 55 55"
@@ -50,13 +50,9 @@ export default defineComponent({
   name: 'BeeButton',
   inheritAttrs: false,
   props: {
-    /**
-     * label
-     * @values Ok
-     */
     label: {
       type: String,
-      default: 'Ok'
+      default: 'BeeButton'
     },
     /**
      * disabled status
@@ -65,17 +61,28 @@ export default defineComponent({
     disabled: {
       type: Boolean,
     },
+    color: {
+      type: String,
+      default: 'white',
+      validator: (value: string) => {
+        return [
+          'white',
+          'yellow',
+          'gray'
+        ].indexOf(value) >= 0
+      }
+    },
     /**
-     * Color of button
-     * @values primary, secondary
+     * variant of button
+     * @values button, stroke
      */
     variant: {
       type: String,
-      default: 'primary',
+      default: 'outlined',
       validator: (value: string) => {
         return [
-          'primary',
-          'secondary'
+          'outlined',
+          'stroke'
         ].indexOf(value) >= 0
       }
     },
@@ -108,14 +115,40 @@ export default defineComponent({
           'big'
         ].indexOf(value) >= 0
       }
-    }
+    },
+    /**
+     * TextAlign on button
+     * @values left, center, right
+     */
+    textAlign: {
+      type: String,
+      default: 'center',
+      validator: (value: string) => {
+        return [
+          'left',
+          'center',
+          'right'
+        ].indexOf(value) >= 0
+      }
+    },
+    /**
+     * icon status
+     * @values true, false
+     */
+    icon: {
+      default: false,
+      type: Boolean,
+    },
   },
   computed: {
     rootClasses() {
       return [
         'bee-button',
-        'bee-button--' + this.size,
         'bee-button--' + this.variant,
+        'bee-button--' + this.color,
+        'bee-button--' + this.size,
+        'bee-button--' + this.textAlign,
+        this.disabled ? 'disabled' : ''
       ]
     },
     computedDisabled() {

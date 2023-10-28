@@ -1,5 +1,5 @@
-import { s as script } from './bee-button-d6af38a5.mjs';
-export { s as BeeButton } from './bee-button-d6af38a5.mjs';
+import { s as script } from './bee-button-8bf1f9d3.mjs';
+export { s as BeeButton } from './bee-button-8bf1f9d3.mjs';
 import { s as script$1 } from './bee-textbox-28eebc83.mjs';
 export { s as BeeTextbox } from './bee-textbox-28eebc83.mjs';
 import 'vue';

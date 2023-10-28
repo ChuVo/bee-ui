@@ -1,5 +1,5 @@
 # Bee-ui
-Простая библиотека компонентов на основе Vue3, TS
+Simple component library based on Vue3, TS, SASS
 
 ## Project setup
 ```
@@ -26,5 +26,16 @@ npm run test:unit
 npm run test:e2e
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+
+## Local use
+
+To use the library locally, just compile and package the package
+
+```
+npm run build:lib && npm pack
+```
+
+Add the assembled package `bee-ui-vue3-0.0.1.tgz` to the test repository
+```
+npm add [lib_path]
+```

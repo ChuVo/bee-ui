@@ -2,7 +2,7 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-var beeButton = require('./bee-button-9e4aa367.js');
+var beeButton = require('./bee-button-f3f62a32.js');
 require('vue');
 
 var index = {

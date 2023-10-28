@@ -1,5 +1,5 @@
-import { s as script } from './bee-button-d6af38a5.mjs';
-export { s as BeeButton } from './bee-button-d6af38a5.mjs';
+import { s as script } from './bee-button-8bf1f9d3.mjs';
+export { s as BeeButton } from './bee-button-8bf1f9d3.mjs';
 import 'vue';
 
 var index = {

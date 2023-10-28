@@ -4,111 +4,150 @@ $small-font-size: 14px
 $normal-font-size: 20px
 $big-font-size: 26px
 
-$small: 1.75em
-$normal: 3.25em
-$large: 2.5em
+$small-width: 200px
+$normal-width: 270px
+$big-width: 270px
+
+$primary: #ffffff
+$secondary: #000000
+$third: #FFC800
+$four: #898E96
+
+$primary-color: $primary
+$primary-bg: $secondary
+$primary-border: 2px solid $third
+
+$secondary-color: $secondary
+$secondary-bg: $primary
+$primary-border: 2px solid $third
 
 .bee-button
-  position: relative
-  padding: 5px 4px 5px 19px
-  display: flex
-  align-items: center
-  justify-content: space-between
-  width: 275px
-  color: $primary-color
-  border: $primary-border
-  background: $primary-bg
-  border-radius: 50px
   font-size: $normal-font-size
+  margin: 20px
   font-family: Beeline Sans
   cursor: pointer
-  transition: .3s
-  overflow: hidden
 
-  &--secondary
-    background: $secondary-bg
-    color: $secondary-color
+  & span
+    width: 100%
+  &--left span
+    text-align: left
+  &--center span
+    text-align: center
+  &--right span
+    text-align: right
+
+  &--stroke
+    background: none
+    border: none
+
+    &:active
+      color: #494747
+
+  &--white
+    color: $primary
+
+  &--yellow
+    color: $third
+
+  &--gray
+    color: $four
 
   &--small
     font-size: $small-font-size
+
   &--big
     font-size: $big-font-size
 
-  &:hover
-    color: $secondary-color
-
-  &:hover ellipse
-    fill: $primary-bg
-
-  &:hover path
-    stroke: $secondary-bg
-
-  &:hover span
-    z-index: 9
-
-  &:before
-    content: ''
-    position: absolute
-    left: 0
-    height: 100%
-    width: 0
-    background: $third
-    transition: .3s
-
-  &:hover:before
-    width: 100%
-
   & svg
-    width: 2.5em
-    height: 2.5em
+    margin-left: 10px
+    transform: translate(10px) rotate(-45deg)
 
-  &.disabled
-    background: inherit
-    color: $four
-    border: 1px solid $four
-    pointer-events: none
+  &--outlined
+    position: relative
+    height: 3.25em
+    padding: 5px 19px
+    display: flex
+    align-items: center
+    justify-content: space-between
+    width: $normal-width
+    background: black
+    border-radius: 50px
+    transition: .3s
+    overflow: hidden
+
+    & svg
+      width: 2.5em
+      height: 2.5em
 
     & ellipse
-      fill: $four
+      transition: .3s
+
+    &.bee-button--white
+      color: white
+      border: 2px solid $primary
+
+      & ellipse
+        fill: white
+
+    &.bee-button--yellow
+      color: white
+      border: 2px solid $third
+
+      & ellipse
+        fill: $third
+
+    &.bee-button--gray
+      color: white
+      border: 2px solid $four
+
+      & ellipse
+        fill: $four
+
+    &.bee-button--small
+      width: $small-width
+
+    &.bee-button--big
+      width: $big-width
+
+    &.disabled
+      border: 1px solid $four
+      color: $four
+      //pointer-events: none
+      cursor: not-allowed
 
     & path
       stroke: $secondary
 
-ellipse
-  transition: .3s
+    &:hover
+      color: $secondary-color
 
-@media screen and (max-width: 1365px)
+      & ellipse
+        fill: $primary-bg
 
-@media screen and (max-width: 1279px)
-  button
-    width: 235px
+      & path
+        stroke: $secondary-bg
 
-    & svg
-      width: 42px
-      height: 42px
+      & span
+        z-index: 1
 
-@media screen and (max-width: 1023px)
-  button
-    width: 190px
+    &:before
+      content: ''
+      position: absolute
+      left: 0
+      height: 100%
+      width: 0
+      background: $third
+      transition: .3s
 
-    & svg
-      width: 34px
-      height: 34px
+    &:hover:before
+      width: 100%
 
-@media screen and (max-width: 959px)
-  button
-    width: 178px
+    &.disabled:before
+      content: none
 
-    & svg
-      width: 30px
-      height: 30px
+    &.disabled:hover
+      color: $four
 
-@media screen and (max-width: 767px)
-  button
-    width: 142px
-
-    & svg
-      width: 24px
-      height: 24px
-
-@media screen and (max-width: 480px)
+    &:active:before
+      transition: .1s
+      background: #fff
