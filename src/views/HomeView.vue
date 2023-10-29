@@ -1,16 +1,16 @@
 <template>
   <div class="home">
-    <HelloWorld msg="Bee-ui library"/>
+    <ButtonsView msg="Bee-ui library"/>
   </div>
 </template>
 
 <script lang="ts">
 import { Options, Vue } from 'vue-class-component';
-import HelloWorld from '@/components/HelloWorld.vue';
+import ButtonsView from '@/components/ButtonsView.vue';
 
 @Options({
   components: {
-    HelloWorld,
+    ButtonsView,
   },
 })
 export default class HomeView extends Vue {}

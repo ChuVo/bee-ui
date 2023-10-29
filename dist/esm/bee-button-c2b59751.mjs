@@ -1,4 +1,4 @@
-import { defineComponent, openBlock, createElementBlock, mergeProps, createElementVNode, toDisplayString, createCommentVNode, createStaticVNode } from 'vue';
+import { defineComponent, openBlock, createElementBlock, mergeProps, toDisplayString, createCommentVNode, createStaticVNode } from 'vue';
 
 var script = defineComponent({
     name: 'BeeButton',
@@ -116,7 +116,7 @@ var script = defineComponent({
 const _hoisted_1 = ["disabled"];
 const _hoisted_2 = ["textContent"];
 const _hoisted_3 = {
-  key: 0,
+  key: 1,
   width: "24",
   height: "24",
   viewBox: "0 0 55 55",
@@ -134,9 +134,12 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     class: _ctx.rootClasses,
     disabled: _ctx.computedDisabled
   }), [
-    createElementVNode("span", {
-      textContent: toDisplayString(_ctx.label)
-    }, null, 8 /* PROPS */, _hoisted_2),
+    (_ctx.label.length)
+      ? (openBlock(), createElementBlock("span", {
+          key: 0,
+          textContent: toDisplayString(_ctx.label)
+        }, null, 8 /* PROPS */, _hoisted_2))
+      : createCommentVNode("v-if", true),
     (_ctx.icon)
       ? (openBlock(), createElementBlock("svg", _hoisted_3, [..._hoisted_5]))
       : createCommentVNode("v-if", true)

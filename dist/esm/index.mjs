@@ -1,13 +1,16 @@
-import { s as script } from './bee-button-8bf1f9d3.mjs';
-export { s as BeeButton } from './bee-button-8bf1f9d3.mjs';
+import { s as script } from './bee-button-c2b59751.mjs';
+export { s as BeeButton } from './bee-button-c2b59751.mjs';
 import { s as script$1 } from './bee-textbox-28eebc83.mjs';
 export { s as BeeTextbox } from './bee-textbox-28eebc83.mjs';
+import index from './toast.mjs';
+export { default as Toast } from './toast.mjs';
 import 'vue';
 
 var components = /*#__PURE__*/Object.freeze({
     __proto__: null,
     BeeButton: script,
-    BeeTextbox: script$1
+    BeeTextbox: script$1,
+    Toast: index
 });
 
 const BeeUILibrary = {

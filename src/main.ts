@@ -1,5 +1,10 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
+import BeeToast from "@/components/toast/index";
 
-createApp(App).use(router).mount('#app')
+const app = createApp(App)
+    .use(router)
+    .use(BeeToast)
+
+app.mount('#app')

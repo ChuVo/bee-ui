@@ -1,7 +1,7 @@
 /*! BeeUI Library v0.0.2 */
-import { defineComponent, openBlock, createElementBlock, mergeProps, createElementVNode, toDisplayString, createCommentVNode, createStaticVNode, withKeys } from 'vue';
+import { defineComponent, openBlock, createElementBlock, mergeProps, toDisplayString, createCommentVNode, createStaticVNode, withKeys, createVNode, TransitionGroup, withCtx, Fragment, renderList, normalizeClass, createElementVNode, ref } from 'vue';
 
-var script$1 = defineComponent({
+var script$2 = defineComponent({
     name: 'BeeButton',
     inheritAttrs: false,
     props: {
@@ -114,10 +114,10 @@ var script$1 = defineComponent({
     }
 });
 
-const _hoisted_1$1 = ["disabled"];
-const _hoisted_2 = ["textContent"];
-const _hoisted_3 = {
-  key: 0,
+const _hoisted_1$2 = ["disabled"];
+const _hoisted_2$1 = ["textContent"];
+const _hoisted_3$1 = {
+  key: 1,
   width: "24",
   height: "24",
   viewBox: "0 0 55 55",
@@ -130,24 +130,27 @@ const _hoisted_5 = [
   _hoisted_4
 ];
 
-function render$1(_ctx, _cache, $props, $setup, $data, $options) {
+function render$2(_ctx, _cache, $props, $setup, $data, $options) {
   return (openBlock(), createElementBlock("button", mergeProps(_ctx.$attrs, {
     class: _ctx.rootClasses,
     disabled: _ctx.computedDisabled
   }), [
-    createElementVNode("span", {
-      textContent: toDisplayString(_ctx.label)
-    }, null, 8 /* PROPS */, _hoisted_2),
+    (_ctx.label.length)
+      ? (openBlock(), createElementBlock("span", {
+          key: 0,
+          textContent: toDisplayString(_ctx.label)
+        }, null, 8 /* PROPS */, _hoisted_2$1))
+      : createCommentVNode("v-if", true),
     (_ctx.icon)
-      ? (openBlock(), createElementBlock("svg", _hoisted_3, [..._hoisted_5]))
+      ? (openBlock(), createElementBlock("svg", _hoisted_3$1, [..._hoisted_5]))
       : createCommentVNode("v-if", true)
-  ], 16 /* FULL_PROPS */, _hoisted_1$1))
+  ], 16 /* FULL_PROPS */, _hoisted_1$2))
 }
 
-script$1.render = render$1;
-script$1.__file = "src/components/button/bee-button.vue";
+script$2.render = render$2;
+script$2.__file = "src/components/button/bee-button.vue";
 
-var script = defineComponent({
+var script$1 = defineComponent({
     name: 'BeeTextbox',
     inheritAttrs: false,
     props: {
@@ -261,9 +264,9 @@ var script = defineComponent({
     }
 });
 
-const _hoisted_1 = ["type", "readonly", "placeholder", "value"];
+const _hoisted_1$1 = ["type", "readonly", "placeholder", "value"];
 
-function render(_ctx, _cache, $props, $setup, $data, $options) {
+function render$1(_ctx, _cache, $props, $setup, $data, $options) {
   return (openBlock(), createElementBlock("input", mergeProps({
     class: _ctx.rootClasses,
     type: _ctx.type,
@@ -273,16 +276,112 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     onInput: _cache[0] || (_cache[0] = (...args) => (_ctx.update && _ctx.update(...args))),
     onBlur: _cache[1] || (_cache[1] = $event => (this.$emit('blur'))),
     onKeyup: _cache[2] || (_cache[2] = withKeys((...args) => (_ctx.onClickEnter && _ctx.onClickEnter(...args)), ["enter"]))
-  }, _ctx.$attrs), null, 16 /* FULL_PROPS */, _hoisted_1))
+  }, _ctx.$attrs), null, 16 /* FULL_PROPS */, _hoisted_1$1))
+}
+
+script$1.render = render$1;
+script$1.__file = "src/components/textbox/bee-textbox.vue";
+
+var script = {
+  name: 'BeeToast',
+  computed: {
+    toasts () {
+      return this.$toast.toasts.value
+    }
+  },
+  methods: {
+    close (toast) {
+      this.$toast.hide(toast);
+    }
+  }
+};
+
+const _hoisted_1 = { class: "bee-toasts" };
+const _hoisted_2 = ["onClick"];
+const _hoisted_3 = ["textContent"];
+
+function render(_ctx, _cache, $props, $setup, $data, $options) {
+  return (openBlock(), createElementBlock("div", _hoisted_1, [
+    createVNode(TransitionGroup, {
+      appear: "",
+      "enter-active-class": "animated fadeInRight",
+      "leave-active-class": "animated fadeOutUp",
+      duration: { enter: 400, leave: 400 }
+    }, {
+      default: withCtx(() => [
+        (openBlock(true), createElementBlock(Fragment, null, renderList($options.toasts, (toast, index) => {
+          return (openBlock(), createElementBlock("div", {
+            key: toast.name + '_' + index,
+            class: normalizeClass(["bee-toasts__item", toast.variant])
+          }, [
+            createElementVNode("div", {
+              class: "bee-toasts__close",
+              onClick: $event => ($options.close(toast))
+            }, null, 8 /* PROPS */, _hoisted_2),
+            createElementVNode("span", {
+              textContent: toDisplayString(toast.text)
+            }, null, 8 /* PROPS */, _hoisted_3)
+          ], 2 /* CLASS */))
+        }), 128 /* KEYED_FRAGMENT */))
+      ]),
+      _: 1 /* STABLE */
+    })
+  ]))
 }
 
 script.render = render;
-script.__file = "src/components/textbox/bee-textbox.vue";
+script.__file = "src/components/toast/toast.vue";
+
+const dataToast = ref([]);
+const model = {
+    text: '',
+    lifetime: 1500
+};
+let index = 0;
+const api = {
+    toasts: ref(dataToast.value),
+    show(toast) {
+        toast = Object.assign({}, model, {
+            index: index++
+        }, toast);
+        dataToast.value.push(toast);
+        if (toast.lifetime) {
+            setTimeout(() => {
+                this.hide(toast);
+            }, toast.lifetime);
+        }
+        return dataToast;
+    },
+    hide(toast) {
+        if (!toast) {
+            return dataToast.value.splice(0, 1);
+        }
+        const index = dataToast.value.findIndex(t => t.index === toast.index);
+        if (index >= 0) {
+            return dataToast.value.splice(index, 1);
+        }
+    }
+};
+var index$1 = {
+    install(Vue, options) {
+        Vue.component(script.name, script);
+        options = Object.assign(model, options);
+        options.name = options.name || 'toast';
+        /**
+         * variant of toast
+         * @values susses, error, warning
+         */
+        options.variant = options.variant || '';
+        Vue.component(options.name);
+        Vue.config.globalProperties.$toast = api;
+    }
+};
 
 var components = /*#__PURE__*/Object.freeze({
   __proto__: null,
-  BeeButton: script$1,
-  BeeTextbox: script
+  BeeButton: script$2,
+  BeeTextbox: script$1,
+  Toast: index$1
 });
 
 const BeeUILibrary = {
@@ -294,4 +393,4 @@ const BeeUILibrary = {
     }
 };
 
-export { script$1 as BeeButton, script as BeeTextbox, BeeUILibrary as default };
+export { script$2 as BeeButton, script$1 as BeeTextbox, index$1 as Toast, BeeUILibrary as default };

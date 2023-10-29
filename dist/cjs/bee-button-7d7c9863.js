@@ -118,7 +118,7 @@ var script = vue.defineComponent({
 const _hoisted_1 = ["disabled"];
 const _hoisted_2 = ["textContent"];
 const _hoisted_3 = {
-  key: 0,
+  key: 1,
   width: "24",
   height: "24",
   viewBox: "0 0 55 55",
@@ -136,9 +136,12 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     class: _ctx.rootClasses,
     disabled: _ctx.computedDisabled
   }), [
-    vue.createElementVNode("span", {
-      textContent: vue.toDisplayString(_ctx.label)
-    }, null, 8 /* PROPS */, _hoisted_2),
+    (_ctx.label.length)
+      ? (vue.openBlock(), vue.createElementBlock("span", {
+          key: 0,
+          textContent: vue.toDisplayString(_ctx.label)
+        }, null, 8 /* PROPS */, _hoisted_2))
+      : vue.createCommentVNode("v-if", true),
     (_ctx.icon)
       ? (vue.openBlock(), vue.createElementBlock("svg", _hoisted_3, [..._hoisted_5]))
       : vue.createCommentVNode("v-if", true)

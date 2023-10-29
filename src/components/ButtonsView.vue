@@ -2,6 +2,8 @@
   <div class="hello">
     <h1>{{ msg }}</h1>
 
+    <BeeToast :sidenav="true" />
+
     <div class="row">
       <BeeTextbox
           :placeholder="'Укажите название медиа хранилища'"
@@ -19,6 +21,7 @@
           :icon="false"
           :textAlign="'left'"
           size="small"
+          @click="showToast('Вы кликнули по кнопке small white left, это сообщение пропадет через 1400мс', 1445400)"
       />
       <BeeButton
           :label="'small yellow center'"
@@ -27,6 +30,7 @@
           :icon="false"
           :textAlign="'center'"
           size="small"
+          @click="showToast('Это сообщение об ошибке!  small yellow centerб , это сообщение пропадет через 500мс', 500, 'error')"
       />
       <BeeButton
           :label="'small gray right'"
@@ -35,6 +39,7 @@
           :icon="true"
           size="small"
           :textAlign="'right'"
+          @click="showToast('Это сообщение предупреждение! small gray right, это сообщение пропадет через  2000мс', 2000, 'warning')"
       />
 
       <BeeButton
@@ -95,37 +100,91 @@
           :textAlign="'right'"
           size="big"
       />
+      <BeeButton
+          :label="'big gray right'"
+          :variant="'outlined'"
+          color="gray"
+          :icon="true"
+          :textAlign="'left'"
+          size="big"
+      />
     </div>
 
-
-    <BeeButton
-        :label="'Small stroke'"
-        :color="'white'"
-        :disabled="false"
-        :variant="'stroke'"
-        :textAlign="'left'"
-        :size="'small'"
-        :icon="false"
-    />
-
-    <BeeButton
-        :label="'Normal stroke'"
-        :color="'yellow'"
-        :disabled="false"
-        :variant="'stroke'"
-        :textAlign="'left'"
-        :icon="false"
-    />
-
-    <BeeButton
-        :label="'Big stroke'"
-        :color="'gray'"
-        :disabled="false"
-        :variant="'stroke'"
-        :textAlign="'left'"
-        :size="'big'"
-        :icon="false"
-    />
+    <div class="row">
+      <BeeButton
+          :label="''"
+          :variant="'stroke'"
+          :size="'small'"
+          :icon="true"
+      />
+      <BeeButton
+          :label="''"
+          :variant="'stroke'"
+          :icon="true"
+      />
+      <BeeButton
+          :label="''"
+          :variant="'stroke'"
+          :size="'big'"
+          :icon="true"
+      />
+    </div>
+    <div class="row">
+      <BeeButton
+          :label="'Small stroke'"
+          :color="'white'"
+          :disabled="false"
+          :variant="'stroke'"
+          :textAlign="'left'"
+          :size="'small'"
+          :icon="false"
+      />
+      <BeeButton
+          :label="'Normal stroke'"
+          :color="'yellow'"
+          :disabled="false"
+          :variant="'stroke'"
+          :textAlign="'left'"
+          :icon="false"
+      />
+      <BeeButton
+          :label="'Big stroke'"
+          :color="'gray'"
+          :disabled="false"
+          :variant="'stroke'"
+          :textAlign="'left'"
+          :size="'big'"
+          :icon="false"
+      />
+    </div>
+    <div class="row">
+      <BeeButton
+          :label="'Small stroke'"
+          :color="'white'"
+          :disabled="false"
+          :variant="'stroke'"
+          :textAlign="'left'"
+          :size="'small'"
+          :icon="true"
+      />
+      <BeeButton
+          :label="'Normal stroke'"
+          :color="'yellow'"
+          :disabled="false"
+          :variant="'stroke'"
+          :textAlign="'left'"
+          :icon="true"
+      />
+      <BeeButton
+          :label="'Big stroke'"
+          :color="'gray'"
+          :disabled="false"
+          :variant="'stroke'"
+          :textAlign="'left'"
+          :size="'big'"
+          :icon="true"
+      />
+    </div>
 
   </div>
 </template>
@@ -133,14 +192,15 @@
 <script lang="ts">
 import { Options, Vue } from 'vue-class-component';
 import {BeeButton} from "@/components/button";
-
 import {BeeTextbox} from "@/components/textbox";
+import {BeeToast} from "@/components/toast";
 import "@/styles/index.sass"
 
 @Options({
   components: {
     BeeButton,
-    BeeTextbox
+    BeeTextbox,
+    BeeToast
   },
   props: {
     msg: String
@@ -151,6 +211,15 @@ import "@/styles/index.sass"
   methods: {
     clickEnter (e: any) {
       console.log('enter', e)
+    },
+
+    showToast (text: string, time: number = 2000, variant: string = '') {
+      console.log('Show toast', this.$toast.toasts.value)
+      this.$toast.show({
+        text,
+        variant,
+        lifetime: time
+      })
     }
   },
   watch: {
