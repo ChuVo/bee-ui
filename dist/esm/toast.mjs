@@ -1,7 +1,18 @@
-import { openBlock, createElementBlock, createVNode, TransitionGroup, withCtx, Fragment, renderList, normalizeClass, createElementVNode, toDisplayString, ref } from 'vue';
+import { openBlock, createElementBlock, createVNode, TransitionGroup, withCtx, Fragment, renderList, normalizeClass, normalizeStyle, createElementVNode, toDisplayString, ref } from 'vue';
 
 var script = {
   name: 'BeeToast',
+
+  props: {
+    /**
+     * Opacity of toast
+     * @values from 0 to 1
+     */
+    opacity: {
+      type: Number,
+      default: 1
+    }
+  },
   computed: {
     toasts () {
       return this.$toast.toasts.value
@@ -30,7 +41,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         (openBlock(true), createElementBlock(Fragment, null, renderList($options.toasts, (toast, index) => {
           return (openBlock(), createElementBlock("div", {
             key: toast.name + '_' + index,
-            class: normalizeClass(["bee-toasts__item", toast.variant])
+            class: normalizeClass(["bee-toasts__item", toast.variant]),
+            style: normalizeStyle({ opacity: $props.opacity })
           }, [
             createElementVNode("div", {
               class: "bee-toasts__close",
@@ -39,7 +51,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
             createElementVNode("span", {
               textContent: toDisplayString(toast.text)
             }, null, 8 /* PROPS */, _hoisted_3)
-          ], 2 /* CLASS */))
+          ], 6 /* CLASS, STYLE */))
         }), 128 /* KEYED_FRAGMENT */))
       ]),
       _: 1 /* STABLE */

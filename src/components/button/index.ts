@@ -1,14 +1,13 @@
-// src/components/button/index.ts
-import { App, Plugin } from 'vue'
+import {App, Plugin} from 'vue'
 
-import BeeButton from './bee-button.vue'
+import Button from './button.vue'
 
 export default {
     install(Vue: App) {
-        Vue.component(BeeButton.name, BeeButton)
+        Vue.component(Button.name, Button)
     }
 } as Plugin
 
 export {
-    BeeButton
+    Button as BeeButton
 }

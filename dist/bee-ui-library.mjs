@@ -1,5 +1,5 @@
-/*! BeeUI Library v0.0.2 */
-import { defineComponent, openBlock, createElementBlock, mergeProps, toDisplayString, createCommentVNode, createStaticVNode, withKeys, createVNode, TransitionGroup, withCtx, Fragment, renderList, normalizeClass, createElementVNode, ref } from 'vue';
+/*! BeeUI Library v0.0.4 */
+import { defineComponent, openBlock, createElementBlock, mergeProps, toDisplayString, createCommentVNode, createStaticVNode, withKeys, createVNode, TransitionGroup, withCtx, Fragment, renderList, normalizeClass, normalizeStyle, createElementVNode, ref } from 'vue';
 
 var script$2 = defineComponent({
     name: 'BeeButton',
@@ -148,7 +148,7 @@ function render$2(_ctx, _cache, $props, $setup, $data, $options) {
 }
 
 script$2.render = render$2;
-script$2.__file = "src/components/button/bee-button.vue";
+script$2.__file = "src/components/button/button.vue";
 
 var script$1 = defineComponent({
     name: 'BeeTextbox',
@@ -280,10 +280,21 @@ function render$1(_ctx, _cache, $props, $setup, $data, $options) {
 }
 
 script$1.render = render$1;
-script$1.__file = "src/components/textbox/bee-textbox.vue";
+script$1.__file = "src/components/textbox/textbox.vue";
 
 var script = {
   name: 'BeeToast',
+
+  props: {
+    /**
+     * Opacity of toast
+     * @values from 0 to 1
+     */
+    opacity: {
+      type: Number,
+      default: 1
+    }
+  },
   computed: {
     toasts () {
       return this.$toast.toasts.value
@@ -312,7 +323,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         (openBlock(true), createElementBlock(Fragment, null, renderList($options.toasts, (toast, index) => {
           return (openBlock(), createElementBlock("div", {
             key: toast.name + '_' + index,
-            class: normalizeClass(["bee-toasts__item", toast.variant])
+            class: normalizeClass(["bee-toasts__item", toast.variant]),
+            style: normalizeStyle({ opacity: $props.opacity })
           }, [
             createElementVNode("div", {
               class: "bee-toasts__close",
@@ -321,7 +333,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
             createElementVNode("span", {
               textContent: toDisplayString(toast.text)
             }, null, 8 /* PROPS */, _hoisted_3)
-          ], 2 /* CLASS */))
+          ], 6 /* CLASS, STYLE */))
         }), 128 /* KEYED_FRAGMENT */))
       ]),
       _: 1 /* STABLE */

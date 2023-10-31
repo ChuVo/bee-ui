@@ -2,7 +2,7 @@
   <div class="hello">
     <h1>{{ msg }}</h1>
 
-    <BeeToast :sidenav="true" />
+    <BeeToast :opacity="0.9" />
 
     <div class="row">
       <BeeTextbox
@@ -41,7 +41,6 @@
           :textAlign="'right'"
           @click="showToast('Это сообщение предупреждение! small gray right, это сообщение пропадет через  2000мс', 2000, 'warning')"
       />
-
       <BeeButton
           :label="'small yellow left'"
           :variant="'outlined'"
@@ -75,7 +74,6 @@
           :textAlign="'right'"
       />
     </div>
-
     <div class="row">
       <BeeButton
           :label="'big white left'"
@@ -109,7 +107,6 @@
           size="big"
       />
     </div>
-
     <div class="row">
       <BeeButton
           :label="''"
@@ -214,7 +211,6 @@ import "@/styles/index.sass"
     },
 
     showToast (text: string, time: number = 2000, variant: string = '') {
-      console.log('Show toast', this.$toast.toasts.value)
       this.$toast.show({
         text,
         variant,

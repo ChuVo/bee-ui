@@ -130,6 +130,6 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 }
 
 script.render = render;
-script.__file = "src/components/textbox/bee-textbox.vue";
+script.__file = "src/components/textbox/textbox.vue";
 
 export { script as s };

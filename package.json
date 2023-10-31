@@ -1,6 +1,6 @@
 {
   "name": "bee-ui-vue3",
-  "version": "0.0.2",
+  "version": "0.0.5",
   "keywords": ["vue3", "ui library"],
   "scripts": {
     "serve": "vue-cli-service serve",

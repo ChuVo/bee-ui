@@ -1,13 +1,13 @@
 import { App, Plugin } from 'vue'
 
-import BeeTextbox from './bee-textbox.vue'
+import Textbox from './textbox.vue'
 
 export default {
     install(Vue: App, ) {
-        Vue.component(BeeTextbox.name, BeeTextbox)
+        Vue.component(Textbox.name, Textbox)
     }
 } as Plugin
 
 export {
-    BeeTextbox
+    Textbox as BeeTextbox
 }

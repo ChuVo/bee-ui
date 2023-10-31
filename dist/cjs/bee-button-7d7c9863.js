@@ -149,6 +149,6 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 }
 
 script.render = render;
-script.__file = "src/components/button/bee-button.vue";
+script.__file = "src/components/button/button.vue";
 
 exports.script = script;

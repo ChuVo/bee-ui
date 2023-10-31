@@ -6,6 +6,17 @@ var vue = require('vue');
 
 var script = {
   name: 'BeeToast',
+
+  props: {
+    /**
+     * Opacity of toast
+     * @values from 0 to 1
+     */
+    opacity: {
+      type: Number,
+      default: 1
+    }
+  },
   computed: {
     toasts () {
       return this.$toast.toasts.value
@@ -34,7 +45,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         (vue.openBlock(true), vue.createElementBlock(vue.Fragment, null, vue.renderList($options.toasts, (toast, index) => {
           return (vue.openBlock(), vue.createElementBlock("div", {
             key: toast.name + '_' + index,
-            class: vue.normalizeClass(["bee-toasts__item", toast.variant])
+            class: vue.normalizeClass(["bee-toasts__item", toast.variant]),
+            style: vue.normalizeStyle({ opacity: $props.opacity })
           }, [
             vue.createElementVNode("div", {
               class: "bee-toasts__close",
@@ -43,7 +55,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
             vue.createElementVNode("span", {
               textContent: vue.toDisplayString(toast.text)
             }, null, 8 /* PROPS */, _hoisted_3)
-          ], 2 /* CLASS */))
+          ], 6 /* CLASS, STYLE */))
         }), 128 /* KEYED_FRAGMENT */))
       ]),
       _: 1 /* STABLE */

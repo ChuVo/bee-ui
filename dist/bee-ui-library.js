@@ -1,4 +1,4 @@
-/*! BeeUI Library v0.0.2 */
+/*! BeeUI Library v0.0.4 */
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('vue')) :
   typeof define === 'function' && define.amd ? define(['exports', 'vue'], factory) :
@@ -152,7 +152,7 @@
   }
 
   script$2.render = render$2;
-  script$2.__file = "src/components/button/bee-button.vue";
+  script$2.__file = "src/components/button/button.vue";
 
   var script$1 = vue.defineComponent({
       name: 'BeeTextbox',
@@ -284,10 +284,21 @@
   }
 
   script$1.render = render$1;
-  script$1.__file = "src/components/textbox/bee-textbox.vue";
+  script$1.__file = "src/components/textbox/textbox.vue";
 
   var script = {
     name: 'BeeToast',
+
+    props: {
+      /**
+       * Opacity of toast
+       * @values from 0 to 1
+       */
+      opacity: {
+        type: Number,
+        default: 1
+      }
+    },
     computed: {
       toasts () {
         return this.$toast.toasts.value
@@ -316,7 +327,8 @@
           (vue.openBlock(true), vue.createElementBlock(vue.Fragment, null, vue.renderList($options.toasts, (toast, index) => {
             return (vue.openBlock(), vue.createElementBlock("div", {
               key: toast.name + '_' + index,
-              class: vue.normalizeClass(["bee-toasts__item", toast.variant])
+              class: vue.normalizeClass(["bee-toasts__item", toast.variant]),
+              style: vue.normalizeStyle({ opacity: $props.opacity })
             }, [
               vue.createElementVNode("div", {
                 class: "bee-toasts__close",
@@ -325,7 +337,7 @@
               vue.createElementVNode("span", {
                 textContent: vue.toDisplayString(toast.text)
               }, null, 8 /* PROPS */, _hoisted_3)
-            ], 2 /* CLASS */))
+            ], 6 /* CLASS, STYLE */))
           }), 128 /* KEYED_FRAGMENT */))
         ]),
         _: 1 /* STABLE */
