@@ -183,6 +183,13 @@
       />
     </div>
 
+    <BeeContextMenu id="context-menu">
+      <template v-slot:add-folder>Создать папку</template>
+      <template v-slot:divider></template>
+      <template v-slot:upload>Загрузить файл</template>
+      <template v-slot:upload-link>Загрузить по ссылке</template>
+    </BeeContextMenu>
+
   </div>
 </template>
 
@@ -191,13 +198,15 @@ import { Options, Vue } from 'vue-class-component';
 import {BeeButton} from "@/components/button";
 import {BeeTextbox} from "@/components/textbox";
 import {BeeToast} from "@/components/toast";
+import {BeeContextMenu} from "@/components/context-menu";
 import "@/styles/index.sass"
 
 @Options({
   components: {
     BeeButton,
     BeeTextbox,
-    BeeToast
+    BeeToast,
+    BeeContextMenu
   },
   props: {
     msg: String

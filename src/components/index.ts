@@ -1,5 +1,6 @@
 import { BeeButton } from "@/components/button";
 import { BeeTextbox } from "@/components/textbox";
-import Toast from "@/components/toast";
+import { BeeToast } from "@/components/toast";
+import { BeeContextMenu } from "@/components/context-menu";
 
-export { BeeButton, BeeTextbox, Toast }
+export { BeeButton, BeeTextbox, BeeToast, BeeContextMenu}

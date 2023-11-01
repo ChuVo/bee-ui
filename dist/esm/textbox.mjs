@@ -1,5 +1,5 @@
-import { s as script } from './bee-textbox-28eebc83.mjs';
-export { s as BeeTextbox } from './bee-textbox-28eebc83.mjs';
+import { s as script } from './textbox-7eb82083.mjs';
+export { s as BeeTextbox } from './textbox-7eb82083.mjs';
 import 'vue';
 
 var index = {

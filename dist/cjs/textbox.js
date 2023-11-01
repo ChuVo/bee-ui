@@ -2,14 +2,14 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-var beeTextbox = require('./bee-textbox-82974b4a.js');
+var textbox = require('./textbox-d6994a34.js');
 require('vue');
 
 var index = {
     install(Vue) {
-        Vue.component(beeTextbox.script.name, beeTextbox.script);
+        Vue.component(textbox.script.name, textbox.script);
     }
 };
 
-exports.BeeTextbox = beeTextbox.script;
+exports.BeeTextbox = textbox.script;
 exports["default"] = index;

@@ -1,11 +1,11 @@
-/*! BeeUI Library v0.0.4 */
+/*! BeeUI Library v0.0.6 */
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('vue')) :
   typeof define === 'function' && define.amd ? define(['exports', 'vue'], factory) :
   (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global["Bee-ui-library"] = {}, global.Vue));
 })(this, (function (exports, vue) { 'use strict';
 
-  var script$2 = vue.defineComponent({
+  var script$3 = vue.defineComponent({
       name: 'BeeButton',
       inheritAttrs: false,
       props: {
@@ -118,9 +118,9 @@
       }
   });
 
-  const _hoisted_1$2 = ["disabled"];
-  const _hoisted_2$1 = ["textContent"];
-  const _hoisted_3$1 = {
+  const _hoisted_1$3 = ["disabled"];
+  const _hoisted_2$2 = ["textContent"];
+  const _hoisted_3$2 = {
     key: 1,
     width: "24",
     height: "24",
@@ -134,7 +134,7 @@
     _hoisted_4
   ];
 
-  function render$2(_ctx, _cache, $props, $setup, $data, $options) {
+  function render$3(_ctx, _cache, $props, $setup, $data, $options) {
     return (vue.openBlock(), vue.createElementBlock("button", vue.mergeProps(_ctx.$attrs, {
       class: _ctx.rootClasses,
       disabled: _ctx.computedDisabled
@@ -143,18 +143,18 @@
         ? (vue.openBlock(), vue.createElementBlock("span", {
             key: 0,
             textContent: vue.toDisplayString(_ctx.label)
-          }, null, 8 /* PROPS */, _hoisted_2$1))
+          }, null, 8 /* PROPS */, _hoisted_2$2))
         : vue.createCommentVNode("v-if", true),
       (_ctx.icon)
-        ? (vue.openBlock(), vue.createElementBlock("svg", _hoisted_3$1, [..._hoisted_5]))
+        ? (vue.openBlock(), vue.createElementBlock("svg", _hoisted_3$2, [..._hoisted_5]))
         : vue.createCommentVNode("v-if", true)
-    ], 16 /* FULL_PROPS */, _hoisted_1$2))
+    ], 16 /* FULL_PROPS */, _hoisted_1$3))
   }
 
-  script$2.render = render$2;
-  script$2.__file = "src/components/button/button.vue";
+  script$3.render = render$3;
+  script$3.__file = "src/components/button/button.vue";
 
-  var script$1 = vue.defineComponent({
+  var script$2 = vue.defineComponent({
       name: 'BeeTextbox',
       inheritAttrs: false,
       props: {
@@ -268,9 +268,9 @@
       }
   });
 
-  const _hoisted_1$1 = ["type", "readonly", "placeholder", "value"];
+  const _hoisted_1$2 = ["type", "readonly", "placeholder", "value"];
 
-  function render$1(_ctx, _cache, $props, $setup, $data, $options) {
+  function render$2(_ctx, _cache, $props, $setup, $data, $options) {
     return (vue.openBlock(), vue.createElementBlock("input", vue.mergeProps({
       class: _ctx.rootClasses,
       type: _ctx.type,
@@ -280,25 +280,14 @@
       onInput: _cache[0] || (_cache[0] = (...args) => (_ctx.update && _ctx.update(...args))),
       onBlur: _cache[1] || (_cache[1] = $event => (this.$emit('blur'))),
       onKeyup: _cache[2] || (_cache[2] = vue.withKeys((...args) => (_ctx.onClickEnter && _ctx.onClickEnter(...args)), ["enter"]))
-    }, _ctx.$attrs), null, 16 /* FULL_PROPS */, _hoisted_1$1))
+    }, _ctx.$attrs), null, 16 /* FULL_PROPS */, _hoisted_1$2))
   }
 
-  script$1.render = render$1;
-  script$1.__file = "src/components/textbox/textbox.vue";
+  script$2.render = render$2;
+  script$2.__file = "src/components/textbox/textbox.vue";
 
-  var script = {
+  var script$1 = {
     name: 'BeeToast',
-
-    props: {
-      /**
-       * Opacity of toast
-       * @values from 0 to 1
-       */
-      opacity: {
-        type: Number,
-        default: 1
-      }
-    },
     computed: {
       toasts () {
         return this.$toast.toasts.value
@@ -311,12 +300,12 @@
     }
   };
 
-  const _hoisted_1 = { class: "bee-toasts" };
-  const _hoisted_2 = ["onClick"];
-  const _hoisted_3 = ["textContent"];
+  const _hoisted_1$1 = { class: "bee-toasts" };
+  const _hoisted_2$1 = ["onClick"];
+  const _hoisted_3$1 = ["textContent"];
 
-  function render(_ctx, _cache, $props, $setup, $data, $options) {
-    return (vue.openBlock(), vue.createElementBlock("div", _hoisted_1, [
+  function render$1(_ctx, _cache, $props, $setup, $data, $options) {
+    return (vue.openBlock(), vue.createElementBlock("div", _hoisted_1$1, [
       vue.createVNode(vue.TransitionGroup, {
         appear: "",
         "enter-active-class": "animated fadeInRight",
@@ -327,17 +316,16 @@
           (vue.openBlock(true), vue.createElementBlock(vue.Fragment, null, vue.renderList($options.toasts, (toast, index) => {
             return (vue.openBlock(), vue.createElementBlock("div", {
               key: toast.name + '_' + index,
-              class: vue.normalizeClass(["bee-toasts__item", toast.variant]),
-              style: vue.normalizeStyle({ opacity: $props.opacity })
+              class: vue.normalizeClass(["bee-toasts__item", toast.variant])
             }, [
               vue.createElementVNode("div", {
                 class: "bee-toasts__close",
                 onClick: $event => ($options.close(toast))
-              }, null, 8 /* PROPS */, _hoisted_2),
+              }, null, 8 /* PROPS */, _hoisted_2$1),
               vue.createElementVNode("span", {
                 textContent: vue.toDisplayString(toast.text)
-              }, null, 8 /* PROPS */, _hoisted_3)
-            ], 6 /* CLASS, STYLE */))
+              }, null, 8 /* PROPS */, _hoisted_3$1)
+            ], 2 /* CLASS */))
           }), 128 /* KEYED_FRAGMENT */))
         ]),
         _: 1 /* STABLE */
@@ -345,8 +333,8 @@
     ]))
   }
 
-  script.render = render;
-  script.__file = "src/components/toast/toast.vue";
+  script$1.render = render$1;
+  script$1.__file = "src/components/toast/toast.vue";
 
   const dataToast = vue.ref([]);
   const model = {
@@ -354,7 +342,7 @@
       lifetime: 1500
   };
   let index = 0;
-  const api = {
+  ({
       toasts: vue.ref(dataToast.value),
       show(toast) {
           toast = Object.assign({}, model, {
@@ -377,27 +365,134 @@
               return dataToast.value.splice(index, 1);
           }
       }
-  };
-  var index$1 = {
-      install(Vue, options) {
-          Vue.component(script.name, script);
-          options = Object.assign(model, options);
-          options.name = options.name || 'toast';
-          /**
-           * variant of toast
-           * @values susses, error, warning
-           */
-          options.variant = options.variant || '';
-          Vue.component(options.name);
-          Vue.config.globalProperties.$toast = api;
+  });
+
+  var script = vue.defineComponent({
+      name: "ContextMenu",
+      props: {
+          id: {
+              required: true,
+              type: String
+          }
+      },
+      data: () => ({
+          left: '0',
+          top: '0',
+          visible: false,
+          parent: Object,
+          direction: 'down'
+      }),
+      mounted() {
+          const elem = document.getElementById(this.id);
+          this.parent = elem.parentNode;
+          elem.parentNode.addEventListener('contextmenu', this.show);
+          document.addEventListener('click', this.lurk);
+      },
+      unmounted() {
+          const elem = document.getElementById(this.id);
+          document.removeEventListener('click', this.lurk);
+          if (!elem)
+              return;
+          elem.parentNode.removeEventListener('contextmenu', this.show);
+      },
+      methods: {
+          show(event) {
+              if (this.visible) {
+                  return;
+              }
+              let el, offsetLeft = 0, offsetTop = 0;
+              // Looking for closest relatively positioned element
+              for (el = this.parent; el && getComputedStyle(el).position === 'static'; el = el.parentElement) { /* foo */ }
+              if (el) {
+                  const rect = el.getBoundingClientRect();
+                  offsetLeft = rect.left;
+                  offsetTop = rect.top;
+              }
+              this.visible = true;
+              this.left = `${event.clientX - offsetLeft}px`;
+              this.top = `${event.clientY - offsetTop}px`;
+              event.preventDefault();
+              this.$emit('show', event);
+              this.$nextTick(() => {
+                  this.fitMenu();
+              });
+          },
+          hide() {
+              this.visible = false;
+          },
+          fitMenu() {
+              const body = document.body.getBoundingClientRect(), items = this.$el.firstChild.getBoundingClientRect();
+              if (items.right > body.right) {
+                  let left = this.left.split('px')[0];
+                  this.left = (Number(left) - 200) + 'px';
+              }
+              if (body.height < items.bottom) {
+                  let top = this.top.split('px')[0];
+                  this.top = (Number(top) - 200) + 'px';
+              }
+          },
+          lurk(e) {
+              if (!this.visible)
+                  return;
+              const className = e.target.className;
+              if (!className) {
+                  this.hide();
+              }
+              else if (className.startsWith('context-menu')) {
+                  return;
+              }
+              else {
+                  this.hide();
+              }
+          }
+      },
+      computed: {
+          display() {
+              return this.visible ? 'block' : 'none';
+          }
       }
+  });
+
+  const _hoisted_1 = ["id"];
+  const _hoisted_2 = { class: "context-menu__items" };
+  const _hoisted_3 = {
+    key: 0,
+    class: "context-menu__divider"
   };
+
+  function render(_ctx, _cache, $props, $setup, $data, $options) {
+    return (vue.openBlock(), vue.createElementBlock("div", {
+      id: _ctx.id,
+      class: "context-menu",
+      onClick: _cache[0] || (_cache[0] = (...args) => (_ctx.lurk && _ctx.lurk(...args))),
+      style: vue.normalizeStyle({ left: _ctx.left, top: _ctx.top, display: _ctx.display })
+    }, [
+      vue.createElementVNode("div", _hoisted_2, [
+        (vue.openBlock(true), vue.createElementBlock(vue.Fragment, null, vue.renderList(Object.keys(_ctx.$slots), (name) => {
+          return (vue.openBlock(), vue.createElementBlock(vue.Fragment, null, [
+            (name.startsWith('divider'))
+              ? (vue.openBlock(), vue.createElementBlock("div", _hoisted_3))
+              : (vue.openBlock(), vue.createElementBlock("div", {
+                  key: 1,
+                  class: vue.normalizeClass(["context-menu__item", name])
+                }, [
+                  vue.renderSlot(_ctx.$slots, name)
+                ], 2 /* CLASS */))
+          ], 64 /* STABLE_FRAGMENT */))
+        }), 256 /* UNKEYED_FRAGMENT */))
+      ])
+    ], 12 /* STYLE, PROPS */, _hoisted_1))
+  }
+
+  script.render = render;
+  script.__file = "src/components/context-menu/context-menu.vue";
 
   var components = /*#__PURE__*/Object.freeze({
     __proto__: null,
-    BeeButton: script$2,
-    BeeTextbox: script$1,
-    Toast: index$1
+    BeeButton: script$3,
+    BeeTextbox: script$2,
+    BeeToast: script$1,
+    BeeContextMenu: script
   });
 
   const BeeUILibrary = {
@@ -409,9 +504,10 @@
       }
   };
 
-  exports.BeeButton = script$2;
-  exports.BeeTextbox = script$1;
-  exports.Toast = index$1;
+  exports.BeeButton = script$3;
+  exports.BeeContextMenu = script;
+  exports.BeeTextbox = script$2;
+  exports.BeeToast = script$1;
   exports["default"] = BeeUILibrary;
 
   Object.defineProperty(exports, '__esModule', { value: true });

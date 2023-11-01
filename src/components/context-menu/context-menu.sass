@@ -1,0 +1,46 @@
+.context-menu
+  position: absolute
+  width: 200px
+  padding: 10px
+  border-radius: 15px
+  background: $secondary
+  box-shadow: 4px 4px 4px 4px #00000040
+  font-size: 14px
+  font-family: Beeline Sans
+  color: $third
+
+  &.left
+    right: 0
+    left: auto
+  &.up
+    top: auto
+    bottom: 0
+
+  &__item
+    position: relative
+    margin-bottom: 19px
+    cursor: pointer
+    text-align: left
+
+    &:nth-last-child(1)
+      margin-bottom: 0
+
+    &:hover
+      color: $primary
+
+    @each $icon in (add-folder, upload, upload-link, edit)
+      &.#{$icon}
+        padding-left: 2em
+        &::after
+          position: absolute
+          left: 0
+          top: 0
+          width: 1.2em
+          height: 1.2em
+          background: url(@/assets/images/#{$icon}.svg) no-repeat
+          background-size: contain
+          content: ''
+
+  &__divider
+    margin: 20px 0
+    border-bottom: 1px solid $four

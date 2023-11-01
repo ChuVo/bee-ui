@@ -2,14 +2,14 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-var beeButton = require('./bee-button-7d7c9863.js');
+var button = require('./button-ec5b0e87.js');
 require('vue');
 
 var index = {
     install(Vue) {
-        Vue.component(beeButton.script.name, beeButton.script);
+        Vue.component(button.script.name, button.script);
     }
 };
 
-exports.BeeButton = beeButton.script;
+exports.BeeButton = button.script;
 exports["default"] = index;

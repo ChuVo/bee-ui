@@ -2,16 +2,18 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-var beeButton = require('./bee-button-7d7c9863.js');
-var beeTextbox = require('./bee-textbox-82974b4a.js');
+var button = require('./button-ec5b0e87.js');
+var textbox = require('./textbox-d6994a34.js');
 var toast = require('./toast.js');
+var contextMenu = require('./context-menu-77670d5f.js');
 require('vue');
 
 var components = /*#__PURE__*/Object.freeze({
     __proto__: null,
-    BeeButton: beeButton.script,
-    BeeTextbox: beeTextbox.script,
-    Toast: toast["default"]
+    BeeButton: button.script,
+    BeeTextbox: textbox.script,
+    BeeToast: toast.BeeToast,
+    BeeContextMenu: contextMenu.script
 });
 
 const BeeUILibrary = {
@@ -23,7 +25,8 @@ const BeeUILibrary = {
     }
 };
 
-exports.BeeButton = beeButton.script;
-exports.BeeTextbox = beeTextbox.script;
-exports.Toast = toast["default"];
+exports.BeeButton = button.script;
+exports.BeeTextbox = textbox.script;
+exports.BeeToast = toast.BeeToast;
+exports.BeeContextMenu = contextMenu.script;
 exports["default"] = BeeUILibrary;
