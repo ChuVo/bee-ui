@@ -1,4 +1,4 @@
-/*! BeeUI Library v0.0.6 */
+/*! BeeUI Library v0.0.7 */
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('vue')) :
   typeof define === 'function' && define.amd ? define(['exports', 'vue'], factory) :
