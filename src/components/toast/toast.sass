@@ -1,8 +1,8 @@
 $toast-width: 50vw
 $toast-color: #151515
 $toast-err-bg: #f19292
-$toast-warning-bg: #f6d87b
-$toast-Success-bg: #a3f192
+$toast-warn-bg: #f6d87b
+$toast-ok-bg: #a3f192
 
 .bee-toasts
   position: fixed
@@ -33,11 +33,10 @@ $toast-Success-bg: #a3f192
       background: $toast-err-bg
 
     &.warning
-      background: $toast-warning-bg
+      background: $toast-warn-bg
 
     &.success
-      background: $toast-Success-bg
-
+      background: $toast-ok-bg
 
   &__close
     position: absolute

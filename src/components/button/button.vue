@@ -103,7 +103,7 @@ export default defineComponent({
     },
     /**
      * Size of button
-     * @values small, big
+     * @values small, normal
      */
     size: {
       type: String,
@@ -111,8 +111,7 @@ export default defineComponent({
       validator: (value: string) => {
         return [
           'small',
-          'normal',
-          'big'
+          'normal'
         ].indexOf(value) >= 0
       }
     },

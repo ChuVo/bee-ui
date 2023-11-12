@@ -1,15 +1,21 @@
 <template>
   <nav>
     <router-link to="/">Buttons</router-link> |
-    <router-link to="/about">About</router-link>
+    <router-link to="/text-fields">Text fields</router-link>
   </nav>
   <router-view/>
+  <BeeToast />
 </template>
 
 <script>
+import "@/styles/index.sass"
+import {BeeToast} from "@/components";
 
 export default {
-  name: 'App'
+  name: 'App',
+  components: {
+    BeeToast
+  }
 }
 
 </script>

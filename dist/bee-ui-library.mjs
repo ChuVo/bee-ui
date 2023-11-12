@@ -1,4 +1,4 @@
-/*! BeeUI Library v0.0.7 */
+/*! BeeUI Library v0.0.8 */
 import { defineComponent, openBlock, createElementBlock, mergeProps, toDisplayString, createCommentVNode, createStaticVNode, withKeys, createVNode, TransitionGroup, withCtx, Fragment, renderList, normalizeClass, createElementVNode, ref, normalizeStyle, renderSlot } from 'vue';
 
 var script$3 = defineComponent({

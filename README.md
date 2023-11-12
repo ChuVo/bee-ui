@@ -16,6 +16,10 @@ npm run serve
 npm run build
 ```
 
+### Publish
+```npm run publish:lib
+```
+
 
 ### Local use
 

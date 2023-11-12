@@ -1,18 +1,16 @@
 <template>
   <div class="hello">
-    <h1>{{ msg }}</h1>
+    <h1>Bee-ui-library <strong v-text="'buttons'" /></h1>
 
-    <BeeToast :opacity="0.9" />
-
-    <div class="row">
-      <BeeTextbox
-          :placeholder="'Укажите название медиа хранилища'"
-          :name="'name'"
-          v-model="textBoxValue"
-          :clickEnter="clickEnter"
-      />
-      <span>Textbox value : {{ textBoxValue }}</span>
-    </div>
+<!--    <div class="row">-->
+<!--      <BeeTextbox-->
+<!--          :placeholder="'Укажите название медиа хранилища'"-->
+<!--          :name="'name'"-->
+<!--          v-model="textBoxValue"-->
+<!--          :clickEnter="clickEnter"-->
+<!--      />-->
+<!--      <span>Textbox value : {{ textBoxValue }}</span>-->
+<!--    </div>-->
 
     <div class="row">
       <BeeButton
@@ -197,19 +195,13 @@
 import { Options, Vue } from 'vue-class-component';
 import {BeeButton} from "@/components/button";
 import {BeeTextbox} from "@/components/textbox";
-import {BeeToast} from "@/components/toast";
 import {BeeContextMenu} from "@/components/context-menu";
-import "@/styles/index.sass"
 
 @Options({
   components: {
     BeeButton,
     BeeTextbox,
-    BeeToast,
     BeeContextMenu
-  },
-  props: {
-    msg: String
   },
   data: () => ({
     textBoxValue: 'Text box'
@@ -229,33 +221,18 @@ import "@/styles/index.sass"
   },
   watch: {
     textBoxValue (val) {
-      console.log('Textbox value was changed', val)
+      console.log('Text was changed', val)
     }
   }
 })
-export default class HelloWorld extends Vue {
-  msg!: string
-}
+export default class ButtonsView extends Vue {}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="sass">
-h3
-  margin: 40px 0 0
-ul
-  list-style-type: none
-  padding: 0
-
-li
-  display: inline-block
-  margin: 0 10px
-
-a
-  color: #42b983
 
 .row
   display: flex
   align-items: center
-
 
 </style>

@@ -1,6 +1,4 @@
-// src/index.ts
 import { App } from 'vue'
-
 import * as components from './components'
 
 const BeeUILibrary = {
@@ -13,6 +11,5 @@ const BeeUILibrary = {
 }
 
 export default BeeUILibrary
-
 // export all components as vue plugin
 export * from './components'

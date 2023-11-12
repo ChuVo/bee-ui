@@ -1,7 +1,8 @@
 {
   "name": "bee-ui-vue3",
-  "version": "0.0.7",
+  "version": "0.0.9",
   "keywords": ["vue3", "ui library"],
+  "autor": "crazysouslik",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",

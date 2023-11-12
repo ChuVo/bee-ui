@@ -1,4 +1,17 @@
-/*! BeeUI Library v0.0.7 */.animated {
+/*! BeeUI Library v0.0.8 */@font-face {
+  font-family: "Craftwork Grotesk Regular";
+  font-style: normal;
+  font-weight: normal;
+  src: local("Craftwork Grotesk Regular"), url("/src/assets/fonts/CraftworkGrotesk-Regular.woff") format("woff");
+}
+@font-face {
+  font-family: "Beeline Sans";
+  src: local("Beeline Sans Regular"), local("BeelineSans-Regular"), url("/src/assets/fonts/BeelineSans-Regular.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+.animated {
   animation-duration: 0.35s;
   animation-fill-mode: both;
 }
@@ -185,19 +198,6 @@ to {
   animation-name: fadeInUp;
 }
 
-@font-face {
-  font-family: "Craftwork Grotesk Regular";
-  font-style: normal;
-  font-weight: normal;
-  src: local("Craftwork Grotesk Regular"), url("/src/assets/fonts/CraftworkGrotesk-Regular.woff") format("woff");
-}
-@font-face {
-  font-family: "Beeline Sans";
-  src: local("Beeline Sans Regular"), local("BeelineSans-Regular"), url("/src/assets/fonts/BeelineSans-Regular.woff") format("woff");
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
 .bee-button {
   font-size: 20px;
   margin: 20px;

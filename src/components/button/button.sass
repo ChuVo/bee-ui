@@ -1,24 +1,29 @@
 $small-font-size: 14px
 $normal-font-size: 20px
-$big-font-size: 24px
 
-$small-width: 200px
-$normal-width: 270px
-$big-width: 270px
+$normal-width: 13.75em
+$normal-background: $secondary
 
-$primary-color: $primary
-$primary-bg: $secondary
-$primary-border: 2px solid $third
+$white-color: $first
+$yellow-color: $third
+$gray-color: $five
 
-$secondary-color: $secondary
-$secondary-bg: $primary
-$primary-border: 2px solid $third
+$white-bg: $first
+$yellow-bg: $third
+$gray-bg: $five
+
+$white-border: 1px solid $first
+$yellow-border: 1px solid $third
+$gray-border: 1px solid $five
 
 .bee-button
   font-size: $normal-font-size
-  margin: 20px
+  margin: 10px
   font-family: Beeline Sans
   cursor: pointer
+
+  &--small
+    font-size: $small-font-size
 
   & span
     width: 100%
@@ -40,7 +45,7 @@ $primary-border: 2px solid $third
         fill: white
 
     & span
-      margin-right: 10px
+      margin-right: .5em
 
     & svg
       width: 1em
@@ -48,90 +53,72 @@ $primary-border: 2px solid $third
       transform: translate(0, .2em) rotate(-45deg)
 
   &--white
-    color: $primary
+    color: $white-color
 
   &--yellow
-    color: $third
+    color: $yellow-color
 
   &--gray
-    color: $four
-
-  &--small
-    font-size: $small-font-size
-
-  &--big
-    font-size: $big-font-size
+    color: $gray-color
 
   &--outlined
     position: relative
-    height: 3em
+    height: 3.1em
     padding: 0px 19px
     display: flex
     align-items: center
     justify-content: space-between
     width: $normal-width
-    background: $secondary
+    background: $normal-background
     border-radius: 50px
     transition: .3s
     overflow: hidden
 
     & svg
-      width: 4em
-      height: 4em
-      margin-left: 1em
-      transform: translate(18px) rotate(-45deg)
+      width: 3.2em
+      height: 3.2em
+      transform: translate(15px) rotate(-45deg)
 
     & ellipse
       transition: .3s
 
     &.bee-button--white
-      color: white
-      border: 2px solid $primary
+      color: $white-color
+      border: $white-border
 
       & ellipse
-        fill: white
+        fill: $white-bg
 
     &.bee-button--yellow
-      color: white
-      border: 2px solid $third
+      color: $white-color
+      border: $yellow-border
 
       & ellipse
-        fill: $third
+        fill: $yellow-bg
 
     &.bee-button--gray
-      color: white
-      border: 2px solid $four
+      color: $white-color
+      border: $gray-border
 
       & ellipse
-        fill: $four
-
-    &.bee-button--small
-      width: $small-width
-
-    &.bee-button--big
-      width: $big-width
-
-      & svg
-        width: 4.3em
-        height: 4.3em
+        fill: $gray-bg
 
     &.disabled
-      border: 1px solid $four
-      color: $four
-      //pointer-events: none
+      border: $gray-border
+      color: $gray-color
       cursor: not-allowed
 
     & path
-      stroke: $secondary
+      stroke: $normal-background
 
     &:hover
-      color: $secondary-color
+      color: $normal-background
 
       & ellipse
-        fill: $primary-bg
+        fill: $normal-background
 
       & path
-        stroke: $secondary-bg
+        stroke: $white-bg
 
       & span
         z-index: 1
@@ -142,7 +129,7 @@ $primary-border: 2px solid $third
       left: 0
       height: 100%
       width: 0
-      background: $third
+      background: $yellow-bg
       transition: .3s
 
     &:hover:before
@@ -152,8 +139,8 @@ $primary-border: 2px solid $third
       content: none
 
     &.disabled:hover
-      color: $four
+      color: $gray-color
 
     &:active:before
       transition: .1s
-      background: #fff
+      background: $white-bg
