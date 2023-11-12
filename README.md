@@ -17,7 +17,8 @@ npm run build
 ```
 
 ### Publish
-```npm run publish:lib
+```
+npm run publish:lib
 ```
 
 

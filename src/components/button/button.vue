@@ -47,7 +47,7 @@
 import { defineComponent } from 'vue';
 
 export default defineComponent({
-  name: 'BeeButton',
+  name: 'Button',
   inheritAttrs: false,
   props: {
     label: {
