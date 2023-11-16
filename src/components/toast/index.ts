@@ -4,7 +4,7 @@ import Toast from './toast.vue';
 const dataToast:Ref<any[]> = ref([])
 const model = {
     text: '',
-    lifetime: 1500
+    lifetime: 4000
 }
 
 let index = 0

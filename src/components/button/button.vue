@@ -4,7 +4,7 @@
     :class="rootClasses"
     :disabled="computedDisabled"
   >
-    <span v-if="label.length" v-text="label" />
+    <div v-if="label.length" v-text="label" />
     <svg v-if="icon"
       width="24"
       height="24"
