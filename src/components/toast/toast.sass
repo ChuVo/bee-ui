@@ -1,6 +1,7 @@
 $toast-width: 50vw
 $toast-color: #151515
 $toast-err-bg: #f19292
+$toast-info-bg: #ffffff
 $toast-warn-bg: #f6d87b
 $toast-ok-bg: #a3f192
 
@@ -28,6 +29,9 @@ $toast-ok-bg: #a3f192
     border-radius: 1px
     box-shadow: 0 5px 6px rgba(0, 0, 0, 0.16)
     text-align: center
+
+    &.info
+      background: $toast-info-bg
 
     &.error
       background: $toast-err-bg

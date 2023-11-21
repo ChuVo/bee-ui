@@ -4,7 +4,7 @@
     :class="rootClasses"
     :disabled="computedDisabled"
   >
-    <div v-if="label.length" v-text="label" />
+    <span class="bee-button__label" v-if="label.length" v-text="label" />
     <svg v-if="icon"
       width="24"
       height="24"

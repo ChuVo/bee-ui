@@ -122,11 +122,10 @@
       />
     </div>
 
-    <BeeContextMenu id="context-menu">
+    <BeeContextMenu id="context-menu" :execute="(event) => onExecute(event)">
       <template v-slot:add-folder>Создать папку</template>
-      <template v-slot:divider></template>
-      <template v-slot:upload>Загрузить файл</template>
-      <template v-slot:upload-link>Загрузить по ссылке</template>
+      <template v-slot:divider />
+      <template v-slot:edit>Переименовать</template>
     </BeeContextMenu>
   </div>
 </template>
@@ -281,6 +280,24 @@ const iconBtnConf = [
         variant,
         lifetime: time
       })
+    },
+    onExecute (params: any) {
+      const {command, event} = params
+
+      switch (command) {
+        case "add-folder":
+          this.$toast.show({
+            text: "Click add folder",
+            lifetime: 1000
+          })
+          break
+        case "edit":
+          this.$toast.show({
+            text: "Click edit",
+            lifetime: 2000
+          })
+          break
+      }
     }
   },
   watch: {

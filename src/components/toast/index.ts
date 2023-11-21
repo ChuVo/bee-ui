@@ -49,7 +49,7 @@ export default {
 
         /**
          * variant of toast
-         * @values susses, error, warning
+         * @values susses, error, warning, info
          */
         options.variant = options.variant || ''
 
