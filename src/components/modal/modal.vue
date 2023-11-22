@@ -31,8 +31,8 @@ export default {
             document.body.classList.remove('overflow-hidden')
             this.$emit('hide', params)
         },
-        lurk () {
-            if (event.target.className === 'modal-mask') {
+        lurk (event) {
+            if (event.target.className === 'modal-mask'  || event.target.className.includes('modal-mask')) {
                 this.hide()
             }
         }
