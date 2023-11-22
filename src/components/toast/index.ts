@@ -39,7 +39,6 @@ const api = {
     }
 }
 
-
 export default {
     install(Vue: App, options) {
         Vue.component(Toast.name, Toast)

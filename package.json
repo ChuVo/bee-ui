@@ -1,14 +1,16 @@
 {
   "name": "bee-ui-vue3",
-  "version": "0.0.15",
-  "keywords": ["vue3", "ui library"],
+  "version": "0.0.18",
+  "keywords": [
+    "vue3",
+    "ui library"
+  ],
   "autor": "crazysouslik",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit",
     "test:e2e": "vue-cli-service test:e2e",
-
     "build:vue": "rollup -c && rollup -c --environment MINIFY",
     "build:vue:watch": "rollup -c --watch",
     "build:style": "sass --no-charset src/styles/index.sass | node ./build/print-banner.js > dist/bee-ui-library.css && cleancss -o dist/bee-ui-library.min.css dist/bee-ui-library.css",
@@ -22,6 +24,7 @@
     "vue-router": "^4.0.3"
   },
   "devDependencies": {
+    "rollup-plugin-copy": "^3.5.0",
     "@rollup/plugin-babel": "^6.0.4",
     "@rollup/plugin-commonjs": "^25.0.7",
     "@rollup/plugin-node-resolve": "^15.2.3",

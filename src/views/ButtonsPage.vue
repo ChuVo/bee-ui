@@ -126,13 +126,14 @@
       <template v-slot:add-folder>Создать папку</template>
       <template v-slot:divider />
       <template v-slot:edit>Переименовать</template>
+      <template v-slot:move>Event</template>
     </BeeContextMenu>
   </div>
 </template>
 
 <script lang="ts">
 import { Options, Vue } from 'vue-class-component';
-import {BeeButton, BeeContextMenu, BeeTextbox} from "@/components";
+import { BeeButton, BeeContextMenu, BeeTextbox} from "@/components";
 
 const smallBtnConf = [
   {
@@ -288,12 +289,18 @@ const iconBtnConf = [
         case "add-folder":
           this.$toast.show({
             text: "Click add folder",
-            lifetime: 1000
+            lifetime: 2500
           })
           break
         case "edit":
           this.$toast.show({
             text: "Click edit",
+            lifetime: 2000
+          })
+          break
+        case "move":
+          this.$toast.show({
+            text: "EVENT CLASSNAME: " + event.target.className,
             lifetime: 2000
           })
           break
@@ -306,7 +313,7 @@ const iconBtnConf = [
     }
   }
 })
-export default class HomeView extends Vue {}
+export default class ButtonsPage extends Vue {}
 </script>
 
 <style scoped lang="sass">

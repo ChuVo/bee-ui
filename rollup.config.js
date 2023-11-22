@@ -1,15 +1,16 @@
-import { text } from './build/banner.json'
-import packageInfo from './package.json'
+import { text } from './build/banner.json';
+import packageInfo from './package.json';
 
-import vue from 'rollup-plugin-vue'
-import node from '@rollup/plugin-node-resolve'
-import cjs from '@rollup/plugin-commonjs'
-import babel from '@rollup/plugin-babel'
-import { terser } from 'rollup-plugin-terser'
+import vue from 'rollup-plugin-vue';
+import node from '@rollup/plugin-node-resolve';
+import cjs from '@rollup/plugin-commonjs';
+import babel from '@rollup/plugin-babel';
+import { terser } from 'rollup-plugin-terser';
 import typescript from 'rollup-plugin-typescript2';
+import copy from 'rollup-plugin-copy';
 
-import fs from 'fs'
-import path from 'path'
+import fs from 'fs';
+import path from 'path';
 
 const baseFolderPath = './src/components/'
 const banner = text.replace('${version}', packageInfo.version)
@@ -129,6 +130,12 @@ export default () => {
         }
       },
       plugins: [
+        copy({
+          targets: [
+            { src: 'src/assets/fonts/**/*', dest: 'dist/assets/fonts' },
+            { src: 'src/assets/images/**/*', dest: 'dist/assets/images' }
+          ]
+        }),
         node({
           extensions: ['.vue', '.ts']
         }),
@@ -139,7 +146,23 @@ export default () => {
         babel(babelOptions),
         cjs()
       ]
-    }
+    },
+
+    // Копируем assets
+    // {
+    //   input: 'src/index.ts',
+    //   output: {
+    //     file: 'dist/app.ts',
+    //     format: 'cts'
+    //   },
+    //   plugins: [
+    //     // copy({
+    //     //   targets: [
+    //     //     { src: 'assets/images/**/*', dest: 'dist/public/images' }
+    //     //   ]
+    //     // })
+    //   ]
+    // }
   ]
 
   if (process.env.MINIFY === 'true') {
