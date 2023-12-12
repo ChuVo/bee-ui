@@ -63,6 +63,7 @@ export default defineComponent({
       // Looking for closest relatively positioned element
       for (el = this.parent; el && getComputedStyle(el).position === 'static'; el = el.parentElement) { /* foo */
       }
+
       if (el) {
         const rect = el.getBoundingClientRect()
         offsetLeft = rect.left
@@ -70,8 +71,10 @@ export default defineComponent({
       }
 
       this.visible = true
-      this.left = `${event.clientX - offsetLeft}px`
-      this.top = `${event.clientY - offsetTop}px`
+      // this.left = `${event.clientX - offsetLeft}px`
+      // this.top = `${event.clientY - offsetTop}px`
+      this.left = `${event.pageX - offsetLeft}px`
+      this.top = `${event.pageY - offsetTop}px`
       event.preventDefault()
       this.$emit('show', event)
 
