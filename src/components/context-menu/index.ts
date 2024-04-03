@@ -9,7 +9,8 @@ import ContextMenu from './context-menu.vue'
  *      edit,
  *      upload,
  *      upload-link,
- *      delete
+ *      delete,
+ *      transcode-btn
  */
 
 export default {
