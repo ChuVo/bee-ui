@@ -1,5 +1,5 @@
 <template>
-  <div :id="id" class="bee-context-menu" @click="lurk" :style="{ left, top, display }">
+  <div :id="id" class="bee-context-menu" @click="lurk" :style="{ left, top, display: visible ? 'block' : 'none' }">
     <div class="bee-context-menu__items">
       <template v-for="name in Object.keys($slots)">
         <div v-if="name.startsWith('divider')" class="bee-context-menu__divider"/>
@@ -120,11 +120,6 @@ export default defineComponent({
       if (!this.execute) return;
       this.execute({event, command})
       this.hide()
-    }
-  },
-  computed: {
-    display() {
-      return this.visible ? 'block' : 'none'
     }
   }
 })
