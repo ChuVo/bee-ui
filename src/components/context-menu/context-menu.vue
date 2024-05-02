@@ -71,8 +71,7 @@ export default defineComponent({
       }
 
       this.visible = true
-      // this.left = `${event.clientX - offsetLeft}px`
-      // this.top = `${event.clientY - offsetTop}px`
+
       this.left = `${event.pageX - offsetLeft}px`
       this.top = `${event.pageY - offsetTop}px`
       event.preventDefault()
