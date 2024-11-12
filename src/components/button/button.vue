@@ -140,7 +140,7 @@ export default defineComponent({
     },
   },
   computed: {
-    rootClasses() {
+    rootClasses(): string[] {
       return [
         'bee-button',
         'bee-button--' + this.variant,
